@@ -35,6 +35,10 @@ ExecStart=$service_script
 WantedBy=default.target
 EOF
 echo "The pwr_board.service file has been created"
+
+# Enable executable function
+sudo chmod u+rwx,g+rwx,o+rwx $(find / -name "pwr_panel.py" 2>/dev/null)
+
 # Reload systemd configuration
 sudo systemctl daemon-reload
 sleep 2
